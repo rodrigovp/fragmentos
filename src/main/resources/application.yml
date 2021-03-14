@@ -1,0 +1,4 @@
+seed.url: http://web.archive.org/web/20090219234802/http://blog.fragmental.com.br/
+
+spring.data.mongodb:
+  uri: mongodb://localhost:27017/fragmental
