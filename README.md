@@ -18,5 +18,6 @@ Utiliza as seguintes ferramentas:
 Há também um livro com diversos artigos do blog dele em português e do blog em inglês: https://www.casadocodigo.com.br/products/livro-fragmentos
 
 Os próximos passos são:
+ * corrigir testes que estão rodando com dados "de produção" :D
  * gerar conteúdo html com os registros do banco
  * possíveis retoques no html gerado
