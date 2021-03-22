@@ -1,11 +1,11 @@
-package org.rodnet.dewards;
+package org.rodnet.fragmentos;
 
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.rodnet.dewards.ObjetosParaTestes.resumoCategoriaBrasil;
+import static org.rodnet.fragmentos.ObjetosParaTestes.resumoCategoriaBrasil;
 
-public class ResumoDaCategoriaTest {
+public class ResumoTest {
 
     @Test
     void converterHtmlParaCategoria() {

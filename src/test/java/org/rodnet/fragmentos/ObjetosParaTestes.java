@@ -1,4 +1,4 @@
-package org.rodnet.dewards;
+package org.rodnet.fragmentos;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
@@ -10,12 +10,12 @@ class ObjetosParaTestes {
     static final String urlDaCategoriaDeArtigos = "http://web.archive.org/web/20090219234802/http://blog.fragmental.com.br/category/artigos/";
     static final String urlDaCategoriaBrasil = "http://web.archive.org/web/20090219234802/http://blog.fragmental.com.br/category/brasil/";
 
-    static final ResumoDaCategoria resumoCategoriaBrasil(){
+    static final Resumo resumoCategoriaBrasil(){
         return umResumoDeCategoria(urlDaCategoriaBrasil);
     }
 
-    static final ResumoDaCategoria umResumoDeCategoria(String url){
-        return ResumoDaCategoria.deHtml(umElementoHtmlDeResumoDeCategoria(url));
+    static final Resumo umResumoDeCategoria(String url){
+        return Resumo.deHtml(umElementoHtmlDeResumoDeCategoria(url));
     }
 
     static final Artigo umArtigo(){

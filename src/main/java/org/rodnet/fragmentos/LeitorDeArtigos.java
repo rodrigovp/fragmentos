@@ -1,4 +1,4 @@
-package org.rodnet.dewards;
+package org.rodnet.fragmentos;
 
 import org.jsoup.Jsoup;
 
@@ -9,15 +9,15 @@ import static java.util.stream.Collectors.toSet;
 
 public class LeitorDeArtigos {
 
-    private ResumoDaCategoria resumoDaCategoria;
+    private Resumo resumo;
 
-    public LeitorDeArtigos(ResumoDaCategoria resumoDaCategoria) {
-        this.resumoDaCategoria = resumoDaCategoria;
+    public LeitorDeArtigos(Resumo resumo) {
+        this.resumo = resumo;
     }
 
     public Set<Artigo> ler() throws IOException {
 
-        return Jsoup.parse(resumoDaCategoria.lerEndereco(), 50000)
+        return Jsoup.parse(resumo.lerEndereco(), 50000)
                 .getElementsByClass("post")
                 .stream()
                 .map(Artigo::deHtml)

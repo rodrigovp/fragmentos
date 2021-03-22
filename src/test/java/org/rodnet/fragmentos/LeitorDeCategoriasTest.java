@@ -1,14 +1,9 @@
-package org.rodnet.dewards;
+package org.rodnet.fragmentos;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.ConfigDataApplicationContextInitializer;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,7 +24,7 @@ class LeitorDeCategoriasTest {
         leitor = new LeitorDeCategorias(urlSemente);
     }
 
-    @Test
+    //@Test
     void lerCategorias() throws IOException {
         var categorias = leitor.lerCategorias();
 

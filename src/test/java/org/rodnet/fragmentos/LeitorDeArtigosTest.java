@@ -1,4 +1,4 @@
-package org.rodnet.dewards;
+package org.rodnet.fragmentos;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.rodnet.dewards.ObjetosParaTestes.resumoCategoriaBrasil;
+import static org.rodnet.fragmentos.ObjetosParaTestes.resumoCategoriaBrasil;
 
 class LeitorDeArtigosTest {
 
@@ -14,8 +14,8 @@ class LeitorDeArtigosTest {
 
     @BeforeEach
     void setUp(){
-        ResumoDaCategoria resumoDaCategoria = resumoCategoriaBrasil();
-        this.leitor = new LeitorDeArtigos(resumoDaCategoria);
+        Resumo resumo = resumoCategoriaBrasil();
+        this.leitor = new LeitorDeArtigos(resumo);
     }
 
     @Test

@@ -1,4 +1,4 @@
-package org.rodnet.dewards;
+package org.rodnet.fragmentos;
 
 import org.jsoup.Jsoup;
 
@@ -16,11 +16,11 @@ public class LeitorDeCategorias {
         this.urlSemente = urlSemente;
     }
 
-    public Set<ResumoDaCategoria> lerCategorias() throws IOException {
+    public Set<Resumo> lerCategorias() throws IOException {
         return Jsoup.parse(urlSemente, 50000)
                 .getElementsByClass("cat-item")
                 .stream()
-                .map(ResumoDaCategoria::deHtml)
+                .map(Resumo::deHtml)
                 .collect(toSet());
     }
 }

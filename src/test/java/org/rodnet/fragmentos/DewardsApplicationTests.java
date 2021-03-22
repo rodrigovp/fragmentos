@@ -1,4 +1,4 @@
-package org.rodnet.dewards;
+package org.rodnet.fragmentos;
 
 //@SpringBootTest
 class DewardsApplicationTests {
