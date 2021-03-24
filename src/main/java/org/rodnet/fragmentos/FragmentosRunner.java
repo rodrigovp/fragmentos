@@ -19,8 +19,8 @@ class FragmentosRunner {
     }
 
     public void run() throws Exception {
-        //System.out.println(">>> COMEÇANDO A IMPORTAÇÃO PARA BANCO");
-        //importacao.execute();
+        System.out.println(">>> COMEÇANDO A IMPORTAÇÃO PARA BANCO");
+        importacao.execute();
         System.out.println(">>> GERANDO OS ARTIGOS EM HTML");
         geracaoDeHtml.execute();
     }

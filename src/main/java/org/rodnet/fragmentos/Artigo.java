@@ -34,7 +34,7 @@ public class Artigo {
 
     public static Artigo deHtml(Element element) {
         var a = element.select("a");
-        String nome = a.attr("title").replace("Permanent Link to ", "");
+        String nome = a.attr("title").replace("Permanent Link to", "").trim();
         URL linkOriginal = LeitorDeURL.ler(a);
         Elements small = element.select("small");
         LocalDate data = LeitorDeDataDeArtigo.ler(small);
