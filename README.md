@@ -16,6 +16,7 @@ Utiliza as seguintes ferramentas:
 Há também um livro com diversos artigos do blog dele em português e do blog em inglês: https://www.casadocodigo.com.br/products/livro-fragmentos
 
 Os próximos passos são:
- * colocar a data no formato yyyymmdd no nome do artigo, para ordenar por data 
+ 
  * corrigir testes que estão rodando com dados "de produção" :D
  * escrever testes unitários para mais classes
+ * ler códigos de exemplo dos artigos.

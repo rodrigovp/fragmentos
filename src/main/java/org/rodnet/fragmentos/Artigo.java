@@ -9,6 +9,7 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -79,10 +80,7 @@ public class Artigo {
         TemplateDeArtigo template = new TemplateDeArtigo();
         String conteudo = template.gerar(this);
 
-        File arquivo = new File(pastaDeSaida,
-                this.lerNome()
-                        .replaceAll(" ", "-")
-                        .replaceAll("/", "-")+ ".html");
+        File arquivo = new File(pastaDeSaida, montarNomeArquivo());
 
         try(FileWriter escritor = new FileWriter(arquivo, StandardCharsets.UTF_8)) {
             escritor.write(conteudo);
@@ -92,5 +90,13 @@ public class Artigo {
         }
 
         return arquivo;
+    }
+
+    private String montarNomeArquivo() {
+        return this.data.format(DateTimeFormatter.ofPattern("yyyyMMdd"))
+                + "-"
+                + this.lerNome()
+                .replaceAll(" ", "-")
+                .replaceAll("/", "-") + ".html";
     }
 }

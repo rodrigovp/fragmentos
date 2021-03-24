@@ -41,6 +41,8 @@ class ArtigoTest {
     void converterParaArquivoHtml() throws IOException {
         File html = umArtigo.toHtml(pastaDeSaida);
 
+        assertThat(html.getName()).startsWith("200");
+
         String conteudoDoArquivo = Files.readString(html.toPath());
 
         assertThat(conteudoDoArquivo).isEqualTo("<html>" +

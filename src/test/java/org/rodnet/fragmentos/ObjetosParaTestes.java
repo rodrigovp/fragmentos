@@ -11,7 +11,7 @@ class ObjetosParaTestes {
 
     static final String urlDaCategoriaDeArtigos = "http://web.archive.org/web/20090219234802/http://blog.fragmental.com.br/category/artigos/";
     static final String urlDaCategoriaBrasil = "http://web.archive.org/web/20090219234802/http://blog.fragmental.com.br/category/brasil/";
-    static final File pastaDeSaida = new File("src/test/resources/pastaSaida");
+    static final File pastaDeSaida = new File("src/test/resources/pastaSaidaTeste");
 
 
     static final Artigo umArtigo(){
