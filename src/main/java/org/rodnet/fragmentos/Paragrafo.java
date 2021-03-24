@@ -22,4 +22,9 @@ class Paragrafo {
     public int hashCode() {
         return Objects.hash(conteudo);
     }
+
+    @Override
+    public String toString(){
+        return conteudo;
+    }
 }

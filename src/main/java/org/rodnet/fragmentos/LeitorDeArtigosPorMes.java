@@ -20,20 +20,22 @@ public class LeitorDeArtigosPorMes {
         this.urlSemente = urlSemente;
     }
 
-    public Set<Resumo> lerArtigosPorMes() throws IOException {
+    public Set<URL> lerArtigosPorMes() throws IOException {
         Document parse = Jsoup.parse(urlSemente, 50000);
         Element sidebar = parse.getElementById("sidebar");
         Elements li = sidebar.select("li");
         Elements a = li.select("a");
 
-        Set<Resumo> resumos = new HashSet<>();
+        Set<URL> resumos = new HashSet<>();
         for(Element element : a){
             URL url = LeitorDeURL.ler(element);
             String nome = stream(url.getPath().split("/"))
                     .reduce((primeiro, segundo) -> primeiro+"-"+segundo)
                     .get();
-            if(url.toString().contains("fragmental") && !nome.equals("-web-20090219234802-http:--blog.fragmental.com.br-artigos")){
-                resumos.add(new Resumo(nome, url));
+            if(url.toString().contains("fragmental")
+                    && !url.toString().contains("category")
+                    && !nome.equals("-web-20090219234802-http:--blog.fragmental.com.br-artigos")){
+                resumos.add(url);
             }
 
         }

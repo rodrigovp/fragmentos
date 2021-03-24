@@ -16,8 +16,6 @@ Utiliza as seguintes ferramentas:
 Há também um livro com diversos artigos do blog dele em português e do blog em inglês: https://www.casadocodigo.com.br/products/livro-fragmentos
 
 Os próximos passos são:
- * verificar outras formas de se localizar os artigos. As categorias podem ter paginação de artigos, e 
-   normalmente não é possível ler nem a segunda página das categorias.
+ * colocar a data no formato yyyymmdd no nome do artigo, para ordenar por data 
  * corrigir testes que estão rodando com dados "de produção" :D
- * gerar conteúdo html com os registros do banco
- * possíveis retoques no html gerado
+ * escrever testes unitários para mais classes

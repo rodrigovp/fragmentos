@@ -5,7 +5,9 @@ import org.jsoup.select.Elements;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.*;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -17,15 +19,12 @@ import static java.util.stream.Collectors.toUnmodifiableList;
 @Document
 public class Artigo {
 
-    @Id
-    private UUID id;
     private String nome;
     private URL linkOriginal;
     private LocalDate data;
     private List<Paragrafo> paragrafos;
 
     private Artigo(String nome, URL linkOriginal, LocalDate data, List<Paragrafo> paragrafos) {
-        this.id = UUID.randomUUID();
         this.nome = nome;
         this.linkOriginal = linkOriginal;
         this.data = data;
@@ -34,18 +33,14 @@ public class Artigo {
 
     public static Artigo deHtml(Element element) {
         var a = element.select("a");
-        System.out.println(">>>>>>>>>>>>>>");
-        System.out.println(a.toString());
-        System.out.println("<<<<<<<<<<<<<<");
-
-        String nome = a.attr("title");
+        String nome = a.attr("title").replace("Permanent Link to ", "");
         URL linkOriginal = LeitorDeURL.ler(a);
         Elements small = element.select("small");
         LocalDate data = LeitorDeDataDeArtigo.ler(small);
 
         var paragrafos = element.getElementsByClass("entry")
                 .select("p").stream()
-                .map(p -> new Paragrafo(p.html()))
+                .map(p -> new Paragrafo(p.toString()))
                 .collect(toUnmodifiableList());
 
         return new Artigo(nome, linkOriginal, data, paragrafos);
@@ -63,10 +58,6 @@ public class Artigo {
         return paragrafos;
     }
 
-    public UUID lerId() {
-        return id;
-    }
-
     public LocalDate lerData(){
         return data;
     }
@@ -76,11 +67,30 @@ public class Artigo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Artigo artigo = (Artigo) o;
-        return nome.equals(artigo.nome);
+        return linkOriginal.equals(artigo.linkOriginal);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome);
+        return Objects.hash(linkOriginal);
+    }
+
+    public File toHtml(File pastaDeSaida) {
+        TemplateDeArtigo template = new TemplateDeArtigo();
+        String conteudo = template.gerar(this);
+
+        File arquivo = new File(pastaDeSaida,
+                this.lerNome()
+                        .replaceAll(" ", "-")
+                        .replaceAll("/", "-")+ ".html");
+
+        try(FileWriter escritor = new FileWriter(arquivo, StandardCharsets.UTF_8)) {
+            escritor.write(conteudo);
+            escritor.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return arquivo;
     }
 }

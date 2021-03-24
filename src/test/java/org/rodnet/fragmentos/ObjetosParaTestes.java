@@ -3,20 +3,16 @@ package org.rodnet.fragmentos;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
+import java.io.File;
+import java.net.URL;
 import java.util.List;
 
 class ObjetosParaTestes {
 
     static final String urlDaCategoriaDeArtigos = "http://web.archive.org/web/20090219234802/http://blog.fragmental.com.br/category/artigos/";
     static final String urlDaCategoriaBrasil = "http://web.archive.org/web/20090219234802/http://blog.fragmental.com.br/category/brasil/";
+    static final File pastaDeSaida = new File("src/test/resources/pastaSaida");
 
-    static final Resumo resumoCategoriaBrasil(){
-        return umResumoDeCategoria(urlDaCategoriaBrasil);
-    }
-
-    static final Resumo umResumoDeCategoria(String url){
-        return Resumo.deHtml(umElementoHtmlDeResumoDeCategoria(url));
-    }
 
     static final Artigo umArtigo(){
         return Artigo.deHtml(umElementoHtmlDeArtigo());
@@ -42,8 +38,8 @@ class ObjetosParaTestes {
     }
 
     static final List<Paragrafo> paragrafosDoArtigo(){
-        return List.of(new Paragrafo("O evento foi sensacional."),
-        new Paragrafo("Apos ficar bufando por meia-hora no palco"),
-        new Paragrafo("decidi que iria pra casa"));
+        return List.of(new Paragrafo("<p>O evento foi sensacional.</p>"),
+        new Paragrafo("<p>Apos ficar bufando por meia-hora no palco</p>"),
+        new Paragrafo("<p>decidi que iria pra casa</p>"));
     }
 }

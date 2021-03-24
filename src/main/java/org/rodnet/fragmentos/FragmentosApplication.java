@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 public class FragmentosApplication {
 
 	public static void main(String[] args) throws Exception {
-		ApplicationContext run = SpringApplication.run(FragmentosApplication.class, args);
-		run.getBean(FragmentosRunner.class).run(args);
+		ApplicationContext ac = SpringApplication.run(FragmentosApplication.class, args);
+		ac.getBean(FragmentosRunner.class).run();
 	}
 }
