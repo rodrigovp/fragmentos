@@ -13,15 +13,16 @@ class TemplateDeArtigoTest {
         TemplateDeArtigo template = new TemplateDeArtigo();
 
         assertThat(template.gerar(artigo)).isEqualTo("<html>" +
-                "<head><title>Permanent Link to Apresentação no FalandoEmAgile</title>" +
+                "<head><title>Apresentação no FalandoEmAgile</title>" +
                 "<meta charset=\"utf-8\">" +
                 "</head>" +
                 "<body>" +
-                "<h2>Permanent Link to Apresentação no FalandoEmAgile</h2>" +
-                "<p>O evento foi sensacional.</p>" +
-                "<p>Apos ficar bufando por meia-hora no palco</p>" +
-                "<p>decidi que iria pra casa</p>" +
-                "</body>" +
+                "<h2>Apresentação no FalandoEmAgile</h2>" +
+                "<div class=\"entry\"> \n" +
+                " <p>O evento foi sensacional.</p> \n" +
+                " <p>Apos ficar bufando por meia-hora no palco</p> \n" +
+                " <p>decidi que iria pra casa</p> \n" +
+                "</div></body>" +
                 "</html>");
     }
 }

@@ -2,11 +2,11 @@ package org.rodnet.fragmentos;
 
 import java.util.Objects;
 
-class Paragrafo {
+class Conteudo {
 
     private String conteudo;
 
-    Paragrafo(String conteudo){
+    Conteudo(String conteudo){
         this.conteudo = conteudo;
     }
 
@@ -14,8 +14,8 @@ class Paragrafo {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Paragrafo paragrafo = (Paragrafo) o;
-        return Objects.equals(conteudo, paragrafo.conteudo);
+        Conteudo conteudo = (Conteudo) o;
+        return Objects.equals(this.conteudo, conteudo.conteudo);
     }
 
     @Override

@@ -27,7 +27,7 @@ class ArtigoTest {
         assertThat(umArtigo.lerNome()).isEqualTo("Apresentação no FalandoEmAgile");
         assertThat(umArtigo.lerLinkOriginal()).isEqualTo(new URL("http://web.archive.org/web/20090203114730/http://blog.fragmental.com.br/2008/10/29/apresentacao-no-falandoemagile/"));
         assertThat(umArtigo.lerData()).isEqualTo(LocalDate.of(2008, 10, 29));
-        assertThat(umArtigo.lerParagrafos()).containsExactlyElementsOf(paragrafosDoArtigo());
+        assertThat(umArtigo.lerParagrafos()).isEqualTo(paragrafosDoArtigo());
     }
 
     @Test
@@ -51,9 +51,11 @@ class ArtigoTest {
                 "</head>" +
                 "<body>" +
                 "<h2>Apresentação no FalandoEmAgile</h2>" +
-                "<p>O evento foi sensacional.</p>" +
-                "<p>Apos ficar bufando por meia-hora no palco</p>" +
-                "<p>decidi que iria pra casa</p>" +
+                "<div class=\"entry\"> \n" +
+                " <p>O evento foi sensacional.</p> \n" +
+                " <p>Apos ficar bufando por meia-hora no palco</p> \n" +
+                " <p>decidi que iria pra casa</p> \n" +
+                "</div>" +
                 "</body>" +
                 "</html>");
     }

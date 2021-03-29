@@ -4,7 +4,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
 import java.io.File;
-import java.net.URL;
 import java.util.List;
 
 class ObjetosParaTestes {
@@ -37,9 +36,13 @@ class ObjetosParaTestes {
         return Jsoup.parse(html);
     }
 
-    static final List<Paragrafo> paragrafosDoArtigo(){
-        return List.of(new Paragrafo("<p>O evento foi sensacional.</p>"),
-        new Paragrafo("<p>Apos ficar bufando por meia-hora no palco</p>"),
-        new Paragrafo("<p>decidi que iria pra casa</p>"));
+    static final Conteudo paragrafosDoArtigo(){
+        return new Conteudo(
+                "<div class=\"entry\"> \n" +
+                " <p>O evento foi sensacional.</p> \n" +
+                " <p>Apos ficar bufando por meia-hora no palco</p> \n" +
+                " <p>decidi que iria pra casa</p> \n" +
+                "</div>");
+
     }
 }

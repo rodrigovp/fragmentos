@@ -21,9 +21,6 @@ public class TemplateDeArtigo {
     }
 
     private String conteudoDo(Artigo artigo) {
-        return artigo.lerParagrafos()
-                .stream()
-                .map(p -> p.toString())
-                .collect(Collectors.joining());
+        return artigo.lerParagrafos().toString();
     }
 }
